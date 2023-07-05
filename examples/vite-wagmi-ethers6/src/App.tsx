@@ -22,11 +22,11 @@ export function App() {
   // const provider = window.ethereum ? new BrowserProvider(window.ethereum) : null
   // const signer = provider && address ? new JsonRpcSigner(provider, address) : null
 
-  const signer = useEthersSigner({ chainId: 5 })
+  const signer = useEthersSigner({ chainId: 80001 })
   // or useSigner() from legacy wagmi versions: const { data: signer } = useSigner()
 
   console.log('SIGNER', signer)
-  const tokenboundClient = new TokenboundClient({ signer, chainId: 5 })
+  const tokenboundClient = new TokenboundClient({ signer, chainId: 80001 })
 
   useEffect(() => {
     async function testTokenboundClass() {

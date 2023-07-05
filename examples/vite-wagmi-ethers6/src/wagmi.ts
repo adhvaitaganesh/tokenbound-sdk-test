@@ -1,8 +1,8 @@
 import { getDefaultConfig } from "connectkit";
 import { createConfig } from "wagmi";
-import { goerli } from 'wagmi/chains'
+import { goerli, polygonMumbai } from 'wagmi/chains'
 
-const chains = [goerli]
+const chains = [polygonMumbai]
 
 export const wagmiConfig = createConfig(
   getDefaultConfig({

@@ -7,6 +7,18 @@ import { Account } from './components'
 import { useCallback, useEffect } from 'react'
 import { useEthersSigner } from './hooks'
 
+//import './styles/globals.css'
+
+import { Inter } from "next/font/google";
+import dynamic from "next/dynamic";
+
+const ConnectButton = dynamic(() => import("./components/ConnectButton"), {
+  ssr: false,
+});
+
+const inter = Inter({ subsets: ["latin"] }); 
+
+
 export function App() {
   const { isConnected, address } = useAccount()
   const signer = useEthersSigner({ chainId: 5 })
@@ -67,6 +79,7 @@ export function App() {
   return (
     <>
       <h1>Ethers 5 Signer + ConnectKit + Vite</h1>
+      
       <ConnectKitButton />
       {isConnected && <Account />}
       {address && (
@@ -79,6 +92,7 @@ export function App() {
             maxWidth: '320px',
           }}
         >
+          <ConnectButton />
           <button onClick={() => executeCall()}>EXECUTE CALL</button>
           <button onClick={() => createAccount()}>CREATE ACCOUNT</button>
         </div>
@@ -86,3 +100,6 @@ export function App() {
     </>
   )
 }
+
+
+//
